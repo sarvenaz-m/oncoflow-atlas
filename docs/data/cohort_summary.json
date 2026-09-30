@@ -1,0 +1,21 @@
+{
+  "cohort": "demo-cohort",
+  "samples": 36,
+  "variants_input": 92,
+  "variants_retained": 92,
+  "genes": 40,
+  "median_purity": 0.644,
+  "subtypes": {
+    "Classical": 18,
+    "Basal-like": 18
+  },
+  "parameters": {
+    "min_vaf": 0.05,
+    "top_n": 12
+  },
+  "pca_variance_explained_pct": {
+    "PC1": 16.72,
+    "PC2": 10.32
+  },
+  "qc_pass_rate_pct": 100
+}

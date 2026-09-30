@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "OncoFlow Atlas"
+message: "If you use this software, please cite this repository."
+type: software
+authors:
+  - family-names: "Mahmoudzadeh"
+    given-names: "Sarvenaz"
+version: "1.0.0"
+license: MIT

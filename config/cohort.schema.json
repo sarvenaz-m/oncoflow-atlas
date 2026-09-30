@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OncoFlow Atlas cohort manifest",
+  "type": "object",
+  "required": ["cohort_name", "expression", "variants", "metadata"],
+  "properties": {
+    "cohort_name": {"type": "string", "minLength": 1},
+    "expression": {"type": "string", "minLength": 1},
+    "variants": {"type": "string", "minLength": 1},
+    "metadata": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

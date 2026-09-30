@@ -1,0 +1,7 @@
+metric,value,status
+Expression missing cells,0.0,PASS
+Duplicated metadata samples,0.0,PASS
+Samples with purity < 0.40,0.0,PASS
+Variants below configured VAF,0.0,PASS
+Median sample purity,0.644,PASS
+Median variants per sample,2.0,PASS

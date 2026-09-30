@@ -1,0 +1,42 @@
+name: quality-gate
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python-quality:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt pytest ruff
+      - name: Static checks
+        run: ruff check bin tests
+      - name: Unit and smoke tests
+        run: pytest -q
+      - name: Build deterministic example report
+        if: matrix.python-version == '3.12'
+        run: |
+          python bin/generate_demo.py --outdir data/demo --samples 36 --seed 19
+          python bin/analyse_multiomics.py \
+            --expression data/demo/expression.csv \
+            --variants data/demo/variants.csv \
+            --metadata data/demo/metadata.csv \
+            --outdir results/ci \
+            --cohort-name demo-cohort \
+            --min-vaf 0.05 \
+            --top-n 12
+          test -s results/ci/report.html
+          test -s results/ci/run_manifest.json

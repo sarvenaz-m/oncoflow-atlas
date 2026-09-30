@@ -1,0 +1,67 @@
+{
+  "workflow": {
+    "name": "OncoFlow Atlas",
+    "version": "1.0.0"
+  },
+  "generated_utc": "2026-09-30T14:15:16.993629+00:00",
+  "cohort": "demo-cohort",
+  "parameters": {
+    "min_vaf": 0.05,
+    "top_n": 12
+  },
+  "runtime": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "plotly": "6.5.2"
+  },
+  "inputs": {
+    "expression": {
+      "path": "data/demo/expression.csv",
+      "sha256": "f37d8f922433d0efab39c3e9a63be7d15c6fbd9aee0bfbbbcde31322347c6937"
+    },
+    "variants": {
+      "path": "data/demo/variants.csv",
+      "sha256": "8642317095ec4ed61ead7c435803b6efe47d6f3348e9b96583c86b019a4c41ca"
+    },
+    "metadata": {
+      "path": "data/demo/metadata.csv",
+      "sha256": "a0a6b38f8aaa974ad132795169c5882f0e5eebb7257da8a25e67208c7fb46ead"
+    }
+  },
+  "outputs": {
+    "cohort_summary.json": {
+      "bytes": 362,
+      "sha256": "9da3f33266a065dfe900b18bc219e4584c27295b154cf6e8743d78fc95e8937f"
+    },
+    "pca_coordinates.csv": {
+      "bytes": 2383,
+      "sha256": "61e0a91ae776641a724936e5024294f3ca016ebc5e1d0068675e35bda1ee297b"
+    },
+    "qc_summary.csv": {
+      "bytes": 234,
+      "sha256": "59a597c90e94c0bb9c3337c696e59a2507d34c5cea29671d60c61fafa7be5360"
+    },
+    "report.html": {
+      "bytes": 4940113,
+      "sha256": "3448147030a6e0b16046a35ac50d807d659a7b301968a7e0ba472a13bb8c5a9b"
+    },
+    "sample_metrics.csv": {
+      "bytes": 1872,
+      "sha256": "784f329d3cf1e0c72e08f1af5444e3b4f87094df845eb0f7e41c87a783bed104"
+    },
+    "subtype_summary.csv": {
+      "bytes": 126,
+      "sha256": "590d5263a9e3f20fb9756bdd01a69adf494e4a224fcb66a15a7c0bf0b014fc4f"
+    },
+    "top_genes.csv": {
+      "bytes": 310,
+      "sha256": "5d7669d63b411470d68be3b7d6cd31b1dea834510e5e0219f24d8dada46f29a0"
+    },
+    "variant_summary.csv": {
+      "bytes": 96,
+      "sha256": "34f03f5d6577c0ea9de86baa2b21ab52622772cffd5f962c667a044833571efa"
+    }
+  }
+}

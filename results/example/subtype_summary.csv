@@ -1,0 +1,3 @@
+subtype,samples,median_purity,median_variants,mean_expression_signal
+Basal-like,18,0.61,3.0,3.257
+Classical,18,0.693,2.0,3.23

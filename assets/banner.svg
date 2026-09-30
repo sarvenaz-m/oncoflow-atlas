@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 480" role="img" aria-label="OncoFlow Atlas banner">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061019"/><stop offset=".48" stop-color="#0B2230"/><stop offset="1" stop-color="#172545"/></linearGradient>
+  <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#43D9C4"/><stop offset=".55" stop-color="#5BB8E8"/><stop offset="1" stop-color="#8E7CFF"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#43D9C4" stop-opacity=".24"/><stop offset="1" stop-color="#43D9C4" stop-opacity="0"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1600" height="480" rx="30" fill="url(#bg)"/>
+<circle cx="1390" cy="25" r="360" fill="url(#halo)"/>
+<g opacity=".16" fill="none" stroke="url(#flow)" stroke-width="2">
+  <path d="M980 70 C1090 10 1160 150 1270 80 S1450 40 1550 125"/><path d="M945 130 C1060 65 1140 210 1250 140 S1440 95 1540 185"/><path d="M930 205 C1040 140 1120 285 1230 215 S1420 170 1525 260"/><path d="M910 285 C1025 220 1100 360 1215 295 S1400 250 1510 340"/>
+</g>
+<g transform="translate(90 84)">
+  <circle cx="135" cy="155" r="106" fill="#0B1925" stroke="#21445A" stroke-width="2"/>
+  <circle cx="135" cy="155" r="78" fill="none" stroke="url(#flow)" stroke-width="6" opacity=".95" filter="url(#glow)"/>
+  <path d="M84 100 C124 129 147 179 191 207 M192 103 C149 132 126 180 82 207" fill="none" stroke="#C6F8F3" stroke-width="3.5" opacity=".8"/>
+  <g fill="#43D9C4"><circle cx="84" cy="100" r="8"/><circle cx="192" cy="103" r="8"/></g><g fill="#8E7CFF"><circle cx="82" cy="207" r="8"/><circle cx="191" cy="207" r="8"/></g><circle cx="136" cy="155" r="10" fill="#5BB8E8"/>
+</g>
+<text x="390" y="186" fill="#F3FAFC" font-family="Inter,Arial,sans-serif" font-size="78" font-weight="760" letter-spacing="-2">OncoFlow Atlas</text>
+<text x="394" y="240" fill="#9BB3BE" font-family="Inter,Arial,sans-serif" font-size="25" letter-spacing="2.4">REPRODUCIBLE CANCER GENOMICS · MULTI-OMIC WORKFLOWS</text>
+<g font-family="Inter,Arial,sans-serif" font-size="17" font-weight="650">
+  <rect x="394" y="292" width="148" height="42" rx="21" fill="#43D9C4" opacity=".13"/><text x="430" y="319" fill="#8BF3E6">NEXTFLOW</text>
+  <rect x="557" y="292" width="121" height="42" rx="21" fill="#5BB8E8" opacity=".13"/><text x="590" y="319" fill="#9DDCF7">PYTHON</text>
+  <rect x="693" y="292" width="115" height="42" rx="21" fill="#8E7CFF" opacity=".14"/><text x="725" y="319" fill="#C5BAFF">HPC</text>
+  <rect x="823" y="292" width="125" height="42" rx="21" fill="#43D9C4" opacity=".13"/><text x="855" y="319" fill="#8BF3E6">CLOUD</text>
+  <rect x="963" y="292" width="190" height="42" rx="21" fill="#8E7CFF" opacity=".14"/><text x="994" y="319" fill="#C5BAFF">PROVENANCE</text>
+</g>
+<text x="394" y="386" fill="#738D99" font-family="Inter,Arial,sans-serif" font-size="17">Portable execution · explicit QC · inspectable outputs · deterministic validation</text>
+</svg>
