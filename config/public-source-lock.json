@@ -1,0 +1,113 @@
+{
+  "repository": "cBioPortal/datahub",
+  "revision": "dca75cb3f32b82d54a6f78bf0a6323e5b975aca1",
+  "study_id": "chol_tcga_pan_can_atlas_2018",
+  "files": [
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/LICENSE",
+      "bytes": 446,
+      "sha256": "a290da9a9b7f53084667f3b21cc3b4fce4168f917994e7516a02dd0e44385d38",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/README.md",
+      "bytes": 1541,
+      "sha256": "7969716b3516ab0d994efa9dee8d19cba42efe1e48ab476a3aba9062d54b56e6",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "meta_study.txt",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/meta_study.txt",
+      "bytes": 592,
+      "sha256": "eac9fb61972a10cb9478031ecf4ffa87b1bcd8626f39dd75f4b39cd881577f5d",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "meta_mrna_seq_v2_rsem.txt",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/meta_mrna_seq_v2_rsem.txt",
+      "bytes": 394,
+      "sha256": "d31bc8b2e7c19a08799653ef4748088e0e485ef9961bcd3adeac114214d69fdb",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "meta_mutations.txt",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/meta_mutations.txt",
+      "bytes": 322,
+      "sha256": "2d84f78ec990a2b530f455ac3a2071a94182a6923060be3d376e499e3f021a4d",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "meta_cna.txt",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/meta_cna.txt",
+      "bytes": 445,
+      "sha256": "2cbdb94c1a8827212034c99de6743f2f5a85288c22fc82de32ab24da045647b6",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "data_clinical_sample.txt",
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/data_clinical_sample.txt",
+      "bytes": 9255,
+      "sha256": "d9ef53317ee291ebc5ae757c7b9806cb945e6b6432cbd1c8c90db42e6aa3d1cf",
+      "lfs_oid_sha256": "d9ef53317ee291ebc5ae757c7b9806cb945e6b6432cbd1c8c90db42e6aa3d1cf"
+    },
+    {
+      "path": "data_mrna_seq_v2_rsem.txt",
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/data_mrna_seq_v2_rsem.txt",
+      "bytes": 5369471,
+      "sha256": "0142633bf030680b6a835c3c48e3c3eeb480ffe1617e1a62cffad36e9d0d6643",
+      "lfs_oid_sha256": "0142633bf030680b6a835c3c48e3c3eeb480ffe1617e1a62cffad36e9d0d6643"
+    },
+    {
+      "path": "data_mutations.txt",
+      "bytes": 3775667,
+      "sha256": "8a0b57668d83d48bfd6b0d64bee28fa702384312866e574cf830e91df912b118",
+      "lfs_oid_sha256": "8a0b57668d83d48bfd6b0d64bee28fa702384312866e574cf830e91df912b118",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/data_mutations.txt"
+    },
+    {
+      "path": "data_cna.txt",
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/data_cna.txt",
+      "bytes": 2366122,
+      "sha256": "4e9536f0d7c52d44ba1b40924b9224a940c92e724edcc5d8873b5f87a8421850",
+      "lfs_oid_sha256": "4e9536f0d7c52d44ba1b40924b9224a940c92e724edcc5d8873b5f87a8421850"
+    },
+    {
+      "path": "data_gene_panel_matrix.txt",
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/data_gene_panel_matrix.txt",
+      "bytes": 1055,
+      "sha256": "653782e802bac9eb0d5fab1d39bfc7f73044a9f6d9a02ceee848e8566888d2e7",
+      "lfs_oid_sha256": "653782e802bac9eb0d5fab1d39bfc7f73044a9f6d9a02ceee848e8566888d2e7"
+    },
+    {
+      "path": "case_lists/cases_all.txt",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/case_lists/cases_all.txt",
+      "bytes": 804,
+      "sha256": "42991dd8109c82338b86de5114546217a59e1b049cd894cd5e90a65d8b3b3e7c",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "case_lists/cases_sequenced.txt",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/case_lists/cases_sequenced.txt",
+      "bytes": 850,
+      "sha256": "607dd5ba07255231dac1ce3384351d0777ca1fdec69c5f60db131addf5630ce7",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "case_lists/cases_cna.txt",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/case_lists/cases_cna.txt",
+      "bytes": 829,
+      "sha256": "bbe2cacfed53c154ecd359169d852904a9208817fb5b48ca13f3c7c62c3c6a1b",
+      "lfs_oid_sha256": null
+    },
+    {
+      "path": "case_lists/cases_RNA_Seq_v2_mRNA.txt",
+      "url": "https://raw.githubusercontent.com/cBioPortal/datahub/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018/case_lists/cases_RNA_Seq_v2_mRNA.txt",
+      "bytes": 875,
+      "sha256": "ce519d0418e22f8f13242c1883743a7beb95f9b79a85275bdf36d28205d346f5",
+      "lfs_oid_sha256": null
+    }
+  ],
+  "lfs_batch_endpoint": "https://nsssw8k94d.execute-api.us-east-1.amazonaws.com/objects/batch"
+}

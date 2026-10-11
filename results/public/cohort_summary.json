@@ -1,0 +1,30 @@
+{
+  "cohort": "tcga-chol-pancan",
+  "samples": 36,
+  "patients": 36,
+  "genes": 20466,
+  "variants_input": 3615,
+  "variants_retained": 3592,
+  "variant_genes": 2996,
+  "median_purity": null,
+  "purity_reported": 0,
+  "samples_flagged": 36,
+  "subtypes": {
+    "Cholangiocarcinoma": 2,
+    "Intrahepatic Cholangiocarcinoma": 30,
+    "Perihilar Cholangiocarcinoma": 4
+  },
+  "qc_pass_rate_pct": 100.0,
+  "qc_rate_scope": "Assessable cohort checks only; unavailable fields are listed separately",
+  "parameters": {
+    "min_vaf": 0.05,
+    "top_n": 12,
+    "min_purity": 0.4,
+    "subtype": "All",
+    "search": ""
+  },
+  "pca_variance_explained_pct": {
+    "PC1": 12.392011924221608,
+    "PC2": 8.907928949006967
+  }
+}

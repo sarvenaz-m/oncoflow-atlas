@@ -1,67 +1,110 @@
 {
   "workflow": {
     "name": "OncoFlow Atlas",
-    "version": "1.0.0"
+    "version": "2.0.0"
   },
-  "generated_utc": "2026-09-30T14:15:16.993629+00:00",
-  "cohort": "demo-cohort",
+  "cohort": "synthetic-demo",
+  "generated_utc": "2026-10-05T12:32:21.450384+00:00",
+  "data_fingerprint": "4a857a7aa19338c194b09660c6df5d048f1c4fafec50072a6599d9f37492f8f4",
   "parameters": {
     "min_vaf": 0.05,
-    "top_n": 12
+    "top_n": 12,
+    "min_purity": 0.4,
+    "subtype": "All",
+    "search": ""
   },
   "runtime": {
-    "python": "3.13.5",
-    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
     "numpy": "2.3.5",
-    "pandas": "2.2.3",
-    "plotly": "6.5.2"
+    "pandas": "2.2.3"
   },
   "inputs": {
     "expression": {
-      "path": "data/demo/expression.csv",
-      "sha256": "f37d8f922433d0efab39c3e9a63be7d15c6fbd9aee0bfbbbcde31322347c6937"
+      "name": "expression.csv",
+      "sha256": "f37d8f922433d0efab39c3e9a63be7d15c6fbd9aee0bfbbbcde31322347c6937",
+      "bytes": 10297
     },
     "variants": {
-      "path": "data/demo/variants.csv",
-      "sha256": "8642317095ec4ed61ead7c435803b6efe47d6f3348e9b96583c86b019a4c41ca"
+      "name": "variants.csv",
+      "sha256": "8642317095ec4ed61ead7c435803b6efe47d6f3348e9b96583c86b019a4c41ca",
+      "bytes": 2819
     },
     "metadata": {
-      "path": "data/demo/metadata.csv",
-      "sha256": "a0a6b38f8aaa974ad132795169c5882f0e5eebb7257da8a25e67208c7fb46ead"
+      "name": "metadata.csv",
+      "sha256": "a0a6b38f8aaa974ad132795169c5882f0e5eebb7257da8a25e67208c7fb46ead",
+      "bytes": 979
     }
   },
+  "software_sha256": {
+    "__init__.py": "a4497056d4b788936c5266979aa45daeacf47a9aea5d2718a244be6a599cd392",
+    "__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "analysis.py": "1cb9c174572e12a264884417ec2f5275db5d6860848cbfdf2bb402384910ea31",
+    "cli.py": "6c75b5429bef195b8bf6f5b8ee8783743cf3a3d443ab6ea001daa368bbddf81e",
+    "public_data.py": "03db69a3169b92a3e300b79a10550571b5de0961872f830d098e4628a78aff50",
+    "reporting.py": "974ce40833d7a23aaacb7befcffb73f6d054be87d3edb2bbfe5866ce07dd20df",
+    "validation.py": "266645ee1d21d1a54aef4ffad3308bc837174e5940d8d5b773ecc7601aa6c368",
+    "web/analysis.js": "20684fe4497ca23beac855ba3962bde0ae5c719da1c98cdf8d5dc4977a45c1d1",
+    "web/app.js": "caca0f4754c4c2c5078479dae4c9d0a07976788d1f218b71cc7592fb7f326f05",
+    "web/index.html": "c7a5bf8a0632b19bd9c51aa44fc22e16ac2521a79b21748904df75289938c8c1",
+    "web/styles.css": "c12a5964c6ebc8e18918d9b89494ce3e9955894b9929ef73a33b2542da5e1b21"
+  },
   "outputs": {
+    "analysis.json": {
+      "bytes": 128479,
+      "sha256": "4001ae02c74c84cae7fc14256505ff14a1bb22be0bbe2fba8b032b3f6b6bf9f4"
+    },
+    "validation.json": {
+      "bytes": 1096,
+      "sha256": "b33105a8f68e9ee0d629f5f6a94d3996610dc0166f2feec9b6d5bc2bd7a15c05"
+    },
     "cohort_summary.json": {
-      "bytes": 362,
-      "sha256": "9da3f33266a065dfe900b18bc219e4584c27295b154cf6e8743d78fc95e8937f"
+      "bytes": 641,
+      "sha256": "070d98414a344478cb198e8ec5054b4b98db732776f898e980ebddb04f44c8ef"
     },
     "pca_coordinates.csv": {
-      "bytes": 2383,
-      "sha256": "61e0a91ae776641a724936e5024294f3ca016ebc5e1d0068675e35bda1ee297b"
+      "bytes": 1548,
+      "sha256": "ab1a23c3c41e9a52d08f4fb2aae539d467e1f2e8647fd6096be1f66d19cb4de3"
     },
-    "qc_summary.csv": {
-      "bytes": 234,
-      "sha256": "59a597c90e94c0bb9c3337c696e59a2507d34c5cea29671d60c61fafa7be5360"
+    "pca_loadings.csv": {
+      "bytes": 1751,
+      "sha256": "8038645a5c9c47c5e6f85a71f08c8f4c96cfda9443cb1b4a15495b270e54a601"
     },
-    "report.html": {
-      "bytes": 4940113,
-      "sha256": "3448147030a6e0b16046a35ac50d807d659a7b301968a7e0ba472a13bb8c5a9b"
+    "sample_correlation.csv": {
+      "bytes": 24148,
+      "sha256": "b19d3221dafc56eb22447613ac85881d221b87807728f46d6d3f636428ba5b9e"
+    },
+    "sensitivity.csv": {
+      "bytes": 149,
+      "sha256": "3bb2659e859d99c618774c7274339f8582c4029fab02ecb3ee7b5cb9f605eba9"
     },
     "sample_metrics.csv": {
-      "bytes": 1872,
-      "sha256": "784f329d3cf1e0c72e08f1af5444e3b4f87094df845eb0f7e41c87a783bed104"
-    },
-    "subtype_summary.csv": {
-      "bytes": 126,
-      "sha256": "590d5263a9e3f20fb9756bdd01a69adf494e4a224fcb66a15a7c0bf0b014fc4f"
+      "bytes": 2516,
+      "sha256": "79ef95013365fe304a1f2ed699df5b68fcc45a13566bf89e67684cbcc72bf3fe"
     },
     "top_genes.csv": {
-      "bytes": 310,
-      "sha256": "5d7669d63b411470d68be3b7d6cd31b1dea834510e5e0219f24d8dada46f29a0"
+      "bytes": 289,
+      "sha256": "322d3d15978d6ae6ecd1ca8f7845145795477c7ebfa1e54d0b0d83013220f7aa"
     },
     "variant_summary.csv": {
-      "bytes": 96,
-      "sha256": "34f03f5d6577c0ea9de86baa2b21ab52622772cffd5f962c667a044833571efa"
+      "bytes": 127,
+      "sha256": "93d924c90f1b2ec9106391383f19d1dbbdd40c77281a35b82736b3b5eea73e2b"
+    },
+    "cna_summary.csv": {
+      "bytes": 44,
+      "sha256": "e4a006f10dbd514eb9391eab50657d5ed6f2e6f89b06af1aa585b1a687027aa3"
+    },
+    "subtype_summary.csv": {
+      "bytes": 147,
+      "sha256": "d5defb20207a1e9f8eea01c434f780b300247a3c0e412ddaaf3ac23bd66b7634"
+    },
+    "qc_summary.csv": {
+      "bytes": 300,
+      "sha256": "3a1126ce0dce4dc41c1f5dbb53270599be91d2c4f7fba6bfab9ee0e78fbe1267"
+    },
+    "report.html": {
+      "bytes": 137089,
+      "sha256": "78a68221fbb2f5ac57c84976af39ac76018711478134a1a0fee5e408fd95a978"
     }
   }
 }

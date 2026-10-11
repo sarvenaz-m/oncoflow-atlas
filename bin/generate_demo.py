@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate a deterministic synthetic multi-omic cohort for local smoke testing."""
+
 from __future__ import annotations
 
 import argparse
@@ -9,11 +10,46 @@ import numpy as np
 import pandas as pd
 
 GENES = [
-    "KRAS", "TP53", "SMAD4", "CDKN2A", "MYC", "GATA6", "KRT19", "MUC1",
-    "EPCAM", "VIM", "COL1A1", "CXCL8", "MKI67", "BRCA2", "PALB2", "KRT8",
-    "KRT18", "KRT7", "S100A2", "LAMC2", "KRT17", "MMP7", "CEACAM6", "TFF1",
-    "TFF2", "AGR2", "MUC5AC", "SPP1", "COL3A1", "FN1", "ITGA2", "TGFB1",
-    "CXCL1", "CXCL2", "STAT3", "ERBB2", "EGFR", "PIK3CA", "AKT1", "MTOR",
+    "KRAS",
+    "TP53",
+    "SMAD4",
+    "CDKN2A",
+    "MYC",
+    "GATA6",
+    "KRT19",
+    "MUC1",
+    "EPCAM",
+    "VIM",
+    "COL1A1",
+    "CXCL8",
+    "MKI67",
+    "BRCA2",
+    "PALB2",
+    "KRT8",
+    "KRT18",
+    "KRT7",
+    "S100A2",
+    "LAMC2",
+    "KRT17",
+    "MMP7",
+    "CEACAM6",
+    "TFF1",
+    "TFF2",
+    "AGR2",
+    "MUC5AC",
+    "SPP1",
+    "COL3A1",
+    "FN1",
+    "ITGA2",
+    "TGFB1",
+    "CXCL1",
+    "CXCL2",
+    "STAT3",
+    "ERBB2",
+    "EGFR",
+    "PIK3CA",
+    "AKT1",
+    "MTOR",
 ]
 
 CLASSICAL_MARKERS = {"GATA6": 3.6, "TFF1": 2.4, "TFF2": 2.1, "AGR2": 2.0, "MUC5AC": 1.9}

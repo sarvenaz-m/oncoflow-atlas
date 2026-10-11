@@ -1,0 +1,141 @@
+{
+  "kind": "public",
+  "name": "TCGA · Cholangiocarcinoma",
+  "study_id": "chol_tcga_pan_can_atlas_2018",
+  "repository": "cBioPortal/datahub",
+  "revision": "dca75cb3f32b82d54a6f78bf0a6323e5b975aca1",
+  "url": "https://www.cbioportal.org/study/summary?id=chol_tcga_pan_can_atlas_2018",
+  "source_url": "https://github.com/cBioPortal/datahub/tree/dca75cb3f32b82d54a6f78bf0a6323e5b975aca1/public/chol_tcga_pan_can_atlas_2018",
+  "citation": "The Cancer Genome Atlas, PanCancer Atlas (Cell, 2018); cBioPortal Datahub.",
+  "data_terms": "ODbL-1.0 for the adapted database; retain the upstream TCGA study notice and attribution.",
+  "expression_units": "RSEM normalized abundance, upstream batch normalized, linear scale",
+  "cna_units": "Discrete GISTIC calls -2,-1,0,1,2",
+  "genome_build": [
+    "GRCh37"
+  ],
+  "samples": 36,
+  "patients": 36,
+  "assay_sample_counts": {
+    "clinical": 36,
+    "rna_matrix": 36,
+    "rna_cases": 36,
+    "mutation_cases": 36,
+    "mutation_coverage": 36,
+    "cna_matrix": 36,
+    "cna_cases": 36
+  },
+  "excluded_samples": [],
+  "feature_counts": {
+    "expression_source": 20531,
+    "expression_retained": 20466,
+    "cna_source": 25128,
+    "cna_retained": 24805
+  },
+  "excluded_feature_counts": {
+    "expression": 65,
+    "cna": 323
+  },
+  "variant_records_source": 3615,
+  "variant_records_retained": 3615,
+  "variants_outside_matched_cohort": 0,
+  "vaf_unavailable": 0,
+  "purity_available": 0,
+  "transformations": [
+    "Exact sample intersection across all assay coverage sources",
+    "Exclude all missing/ambiguous symbol or Entrez rows; no arbitrary duplicate selection",
+    "VAF=t_alt_count/(t_ref_count+t_alt_count); retain unknown as missing",
+    "Preserve source consequence classes including synonymous/noncoding records",
+    "Purity and batch not reported in selected source fields; retain missing explicitly"
+  ],
+  "source_lock_sha256": "2f8a4a854fc01e24225f34d55060f1238b4f00f12d79c7f9442ad9cde1fa85fc",
+  "source_files": [
+    {
+      "path": "LICENSE",
+      "sha256": "a290da9a9b7f53084667f3b21cc3b4fce4168f917994e7516a02dd0e44385d38",
+      "bytes": 446
+    },
+    {
+      "path": "README.md",
+      "sha256": "7969716b3516ab0d994efa9dee8d19cba42efe1e48ab476a3aba9062d54b56e6",
+      "bytes": 1541
+    },
+    {
+      "path": "meta_study.txt",
+      "sha256": "eac9fb61972a10cb9478031ecf4ffa87b1bcd8626f39dd75f4b39cd881577f5d",
+      "bytes": 592
+    },
+    {
+      "path": "meta_mrna_seq_v2_rsem.txt",
+      "sha256": "d31bc8b2e7c19a08799653ef4748088e0e485ef9961bcd3adeac114214d69fdb",
+      "bytes": 394
+    },
+    {
+      "path": "meta_mutations.txt",
+      "sha256": "2d84f78ec990a2b530f455ac3a2071a94182a6923060be3d376e499e3f021a4d",
+      "bytes": 322
+    },
+    {
+      "path": "meta_cna.txt",
+      "sha256": "2cbdb94c1a8827212034c99de6743f2f5a85288c22fc82de32ab24da045647b6",
+      "bytes": 445
+    },
+    {
+      "path": "data_clinical_sample.txt",
+      "sha256": "d9ef53317ee291ebc5ae757c7b9806cb945e6b6432cbd1c8c90db42e6aa3d1cf",
+      "bytes": 9255
+    },
+    {
+      "path": "data_mrna_seq_v2_rsem.txt",
+      "sha256": "0142633bf030680b6a835c3c48e3c3eeb480ffe1617e1a62cffad36e9d0d6643",
+      "bytes": 5369471
+    },
+    {
+      "path": "data_mutations.txt",
+      "sha256": "8a0b57668d83d48bfd6b0d64bee28fa702384312866e574cf830e91df912b118",
+      "bytes": 3775667
+    },
+    {
+      "path": "data_cna.txt",
+      "sha256": "4e9536f0d7c52d44ba1b40924b9224a940c92e724edcc5d8873b5f87a8421850",
+      "bytes": 2366122
+    },
+    {
+      "path": "data_gene_panel_matrix.txt",
+      "sha256": "653782e802bac9eb0d5fab1d39bfc7f73044a9f6d9a02ceee848e8566888d2e7",
+      "bytes": 1055
+    },
+    {
+      "path": "case_lists/cases_all.txt",
+      "sha256": "42991dd8109c82338b86de5114546217a59e1b049cd894cd5e90a65d8b3b3e7c",
+      "bytes": 804
+    },
+    {
+      "path": "case_lists/cases_sequenced.txt",
+      "sha256": "607dd5ba07255231dac1ce3384351d0777ca1fdec69c5f60db131addf5630ce7",
+      "bytes": 850
+    },
+    {
+      "path": "case_lists/cases_cna.txt",
+      "sha256": "bbe2cacfed53c154ecd359169d852904a9208817fb5b48ca13f3c7c62c3c6a1b",
+      "bytes": 829
+    },
+    {
+      "path": "case_lists/cases_RNA_Seq_v2_mRNA.txt",
+      "sha256": "ce519d0418e22f8f13242c1883743a7beb95f9b79a85275bdf36d28205d346f5",
+      "bytes": 875
+    }
+  ],
+  "prepared_files": {
+    "expression.csv": "5329c37490120bd7f1f72943278ed475c0292e88c8fba864469bbdff7b433cdc",
+    "cna.csv": "fa057f5820845c0343efb7baf6583239492ac7ec2866a29a2861fd3d5740c877",
+    "metadata.csv": "d9d2a69f662b9abc13c28cced56f85e0bd4953797ede0468e28e6fdc81727ea3",
+    "variants.csv": "8c849755cda27e600e20605b71d4f12d6c8862201bcbf5b85f41ba2ebb27a6e2",
+    "excluded_features.csv": "640963e99ac077dc0088756052eca7443b454b228cd6413641d4f55fb24b6949"
+  },
+  "limitations": [
+    "Processed tables only; sequencing read QC and variant calling were not rerun",
+    "36 tumors from one study; no normal comparator or external validation cohort",
+    "PCA and mutation/CNA summaries are descriptive; no diagnostic classifier or survival model is fitted",
+    "Variant counts include all source consequence classes and are not TMB per megabase"
+  ]
+}

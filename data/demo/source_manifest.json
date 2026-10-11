@@ -1,0 +1,14 @@
+{
+  "kind": "synthetic",
+  "name": "Synthetic workflow demonstration",
+  "expression_units": "Authored linear-scale expression values",
+  "prepared_files": {
+    "expression.csv": "f37d8f922433d0efab39c3e9a63be7d15c6fbd9aee0bfbbbcde31322347c6937",
+    "variants.csv": "8642317095ec4ed61ead7c435803b6efe47d6f3348e9b96583c86b019a4c41ca",
+    "metadata.csv": "a0a6b38f8aaa974ad132795169c5882f0e5eebb7257da8a25e67208c7fb46ead"
+  },
+  "limitations": [
+    "Authored data for exercising the workflow; not biological validation.",
+    "No copy-number assay is supplied for this demonstration."
+  ]
+}

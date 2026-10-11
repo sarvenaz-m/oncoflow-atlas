@@ -1,19 +1,17 @@
-# Architecture
+# Workflow architecture
 
-![Workflow architecture](../assets/architecture.svg)
+```mermaid
+flowchart TD
+  A["Pinned source tables"] --> B["Prepare matched cohort"]
+  B --> C["Validate inputs and hashes"]
+  C --> D["Compute analysis and CSVs"]
+  D --> E["Render offline workbench"]
+```
 
-OncoFlow Atlas separates **orchestration**, **analysis**, **configuration**, **validation** and **presentation** so each layer can be replaced independently.
+`public_data.py` selects and transforms the pinned public cohort. `validation.py` owns the structural/numeric contract. `analysis.py` calculates the full-cohort PCA and filtered views. `reporting.py` embeds data and the browser source into a portable report. `cli.py` exposes independent stages as well as a direct run.
 
-1. **Data contract** — metadata, expression and variant tables are validated before computation.
-2. **Nextflow DSL2 orchestration** — executor selection and resource policy remain outside the analysis code.
-3. **Python analysis layer** — performs exploratory expression structure, variant summaries, sample integration and QC.
-4. **Provenance layer** — records runtime versions, input checksums, parameters and output checksums.
-5. **Presentation layer** — generates both machine-readable tables and a standalone interactive HTML report.
+Nextflow stages mirror validation, analysis and rendering. Analysis verifies hashes emitted by validation, so a changed input cannot use a stale validation artifact. Source code is a workflow input and `cache = 'deep'` uses content for file inputs. Report rendering produces the final directory for publication. Nextflow execution status for this release is documented in `validation/README.md`.
 
-## Execution targets
+The browser's `analysis.js` implements the declared view calculations separately; Python/JavaScript parity is tested. PCA is computed in Python and stored once. `app.js` renders native SVG, accessible labels and data tables. No plotting CDN, web font, backend or analytics endpoint is required. Python rendering and GitHub Pages use the exact same template and scripts.
 
-The same workflow can run with local, SLURM or AWS Batch executors. A Singularity profile is included for HPC environments where Docker is not appropriate.
-
-## Extension points
-
-The tabular input contract intentionally sits downstream of assay-specific preprocessing. FASTQ alignment/quantification, VCF annotation, single-cell ingestion or spatial preprocessing can therefore be added as upstream modules without rewriting the integration/reporting layer.
+The only versioned browser source is under `src/oncoflow_atlas/web/`. Generated HTML contains everything needed to open with `file://` or serve through GitHub Pages. Large table previews show the first 200 rows and identify the total; the full ranked table remains in the current-view JSON download.

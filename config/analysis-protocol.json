@@ -1,0 +1,21 @@
+{
+  "protocol_version": "oncoflow-2.0",
+  "expression_transform": "log2(value + 1)",
+  "expression_units": "source-normalized linear-scale abundance; not raw read counts",
+  "variance_ddof": 1,
+  "heatmap_standardization": "selected-sample mean and sample standard deviation, ddof=1",
+  "feature_ranking": "descending log-expression variance, then gene identifier ascending",
+  "pca": "center log-expression features; no feature scaling; full-cohort SVD; fixed coordinates under browser filtering",
+  "pca_sign": "largest absolute loading per component is positive; first feature breaks ties",
+  "missing_expression": "reject; no implicit zero imputation",
+  "missing_purity": "retain as null and flag as unavailable",
+  "min_purity": 0.4,
+  "min_vaf": 0.05,
+  "top_n": 12,
+  "vaf_policy": "alt / (ref + alt); unknown VAF excluded at every threshold including zero",
+  "variant_measure": "retained records, not mutations per megabase",
+  "cna": "source discrete calls -2,-1,0,1,2; high-level amplification=2, deep deletion=-2",
+  "public_feature_policy": "exclude missing symbols/Entrez IDs and every ambiguous duplicated symbol or Entrez row before analysis",
+  "public_sample_policy": "exact intersection of clinical sample IDs, RNA matrix/case list, mutation coverage and CNA matrix/case list; one sample per patient",
+  "selection_policy": "All eligible samples and unambiguous measured features are included; no feature or sample is selected by a desired result."
+}

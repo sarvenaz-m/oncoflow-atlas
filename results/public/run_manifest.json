@@ -1,0 +1,115 @@
+{
+  "workflow": {
+    "name": "OncoFlow Atlas",
+    "version": "2.0.0"
+  },
+  "cohort": "tcga-chol-pancan",
+  "generated_utc": "2026-10-05T12:32:20.651093+00:00",
+  "data_fingerprint": "5a66cb655f4d12bcca762941242d1cdfbe7392f3247bf942d5edf0551ba38b03",
+  "parameters": {
+    "min_vaf": 0.05,
+    "top_n": 12,
+    "min_purity": 0.4,
+    "subtype": "All",
+    "search": ""
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "inputs": {
+    "expression": {
+      "name": "expression.csv",
+      "sha256": "5329c37490120bd7f1f72943278ed475c0292e88c8fba864469bbdff7b433cdc",
+      "bytes": 10474156
+    },
+    "variants": {
+      "name": "variants.csv",
+      "sha256": "8c849755cda27e600e20605b71d4f12d6c8862201bcbf5b85f41ba2ebb27a6e2",
+      "bytes": 393586
+    },
+    "metadata": {
+      "name": "metadata.csv",
+      "sha256": "d9d2a69f662b9abc13c28cced56f85e0bd4953797ede0468e28e6fdc81727ea3",
+      "bytes": 2818
+    },
+    "cna": {
+      "name": "cna.csv",
+      "sha256": "fa057f5820845c0343efb7baf6583239492ac7ec2866a29a2861fd3d5740c877",
+      "bytes": 2172896
+    }
+  },
+  "software_sha256": {
+    "__init__.py": "a4497056d4b788936c5266979aa45daeacf47a9aea5d2718a244be6a599cd392",
+    "__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "analysis.py": "1cb9c174572e12a264884417ec2f5275db5d6860848cbfdf2bb402384910ea31",
+    "cli.py": "6c75b5429bef195b8bf6f5b8ee8783743cf3a3d443ab6ea001daa368bbddf81e",
+    "public_data.py": "03db69a3169b92a3e300b79a10550571b5de0961872f830d098e4628a78aff50",
+    "reporting.py": "974ce40833d7a23aaacb7befcffb73f6d054be87d3edb2bbfe5866ce07dd20df",
+    "validation.py": "266645ee1d21d1a54aef4ffad3308bc837174e5940d8d5b773ecc7601aa6c368",
+    "web/analysis.js": "20684fe4497ca23beac855ba3962bde0ae5c719da1c98cdf8d5dc4977a45c1d1",
+    "web/app.js": "caca0f4754c4c2c5078479dae4c9d0a07976788d1f218b71cc7592fb7f326f05",
+    "web/index.html": "c7a5bf8a0632b19bd9c51aa44fc22e16ac2521a79b21748904df75289938c8c1",
+    "web/styles.css": "c12a5964c6ebc8e18918d9b89494ce3e9955894b9929ef73a33b2542da5e1b21"
+  },
+  "outputs": {
+    "analysis.json": {
+      "bytes": 25843909,
+      "sha256": "cdf02dc322e84b40cfbb4e85daa0dd805ad5f52eeb6ab517fb655b9edc4a5265"
+    },
+    "validation.json": {
+      "bytes": 1261,
+      "sha256": "b4be16d3a5dc15318c07c54e6ab6e17b2403308c62a3d0b9a6a0c09bfe832020"
+    },
+    "cohort_summary.json": {
+      "bytes": 718,
+      "sha256": "17ce0275d331f4e54f11ece1ce67725d9727272054e408c824fe4a2af0c9c14d"
+    },
+    "pca_coordinates.csv": {
+      "bytes": 1848,
+      "sha256": "9083096d87aa079cfccd6a6754f8763630216dfd88c89a129f0aeb323c053efd"
+    },
+    "pca_loadings.csv": {
+      "bytes": 946893,
+      "sha256": "6346725f886b16080fa62ed0219a6129094c3c0b4a2b27078dadd73551bd3b62"
+    },
+    "sample_correlation.csv": {
+      "bytes": 23819,
+      "sha256": "bbe4e451699bdc2e4637d5d0f9ca5bb5f1071f46158d736ec665d1836d108dd5"
+    },
+    "sensitivity.csv": {
+      "bytes": 174,
+      "sha256": "e4598239c46e6dad6c8e4ce21538b38d564cbc1a0d2e1fbabbc938d0086bee0c"
+    },
+    "sample_metrics.csv": {
+      "bytes": 5119,
+      "sha256": "751b2d64254387a6d9ce80b804f738480d6ec118e51e8b4952ab23e95c96084e"
+    },
+    "top_genes.csv": {
+      "bytes": 278,
+      "sha256": "5fe492dce6876d2a96c658c2bdd80211f1c657412daeeadcbac388c0d5597c61"
+    },
+    "variant_summary.csv": {
+      "bytes": 31417,
+      "sha256": "cfaebf0a66a4e44e9bfa68dae9f94ee0658327c740edf89d45fc4b1b361c4357"
+    },
+    "cna_summary.csv": {
+      "bytes": 64124,
+      "sha256": "c91345b917792a2aa4f6c7aa991860becf3ae82c618ac52455c3ba68edaa044c"
+    },
+    "subtype_summary.csv": {
+      "bytes": 220,
+      "sha256": "922d926b8f83a1cefa4c32e597b8d5eb1bda5f56ed0a2bf17e931729a73d95d9"
+    },
+    "qc_summary.csv": {
+      "bytes": 295,
+      "sha256": "b05b250c170fc345fde21c97440bf439090a39c04f4a6d449d904fded6023381"
+    },
+    "report.html": {
+      "bytes": 9457123,
+      "sha256": "7697a48ed63d0ce2aca668c6de60a63dfc2c78e516d10a22363e817152b79b90"
+    }
+  }
+}

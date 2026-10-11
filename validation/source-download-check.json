@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "files_verified": 15,
+  "method": "Fresh download through the checked-in fetch_public_data.py; source size and SHA-256 verified",
+  "revision": "dca75cb3f32b82d54a6f78bf0a6323e5b975aca1",
+  "files": [
+    {
+      "file": "LICENSE",
+      "sha256": "a290da9a9b7f53084667f3b21cc3b4fce4168f917994e7516a02dd0e44385d38"
+    },
+    {
+      "file": "README.md",
+      "sha256": "7969716b3516ab0d994efa9dee8d19cba42efe1e48ab476a3aba9062d54b56e6"
+    },
+    {
+      "file": "meta_study.txt",
+      "sha256": "eac9fb61972a10cb9478031ecf4ffa87b1bcd8626f39dd75f4b39cd881577f5d"
+    },
+    {
+      "file": "meta_mrna_seq_v2_rsem.txt",
+      "sha256": "d31bc8b2e7c19a08799653ef4748088e0e485ef9961bcd3adeac114214d69fdb"
+    },
+    {
+      "file": "meta_mutations.txt",
+      "sha256": "2d84f78ec990a2b530f455ac3a2071a94182a6923060be3d376e499e3f021a4d"
+    },
+    {
+      "file": "meta_cna.txt",
+      "sha256": "2cbdb94c1a8827212034c99de6743f2f5a85288c22fc82de32ab24da045647b6"
+    },
+    {
+      "file": "data_clinical_sample.txt",
+      "sha256": "d9ef53317ee291ebc5ae757c7b9806cb945e6b6432cbd1c8c90db42e6aa3d1cf"
+    },
+    {
+      "file": "data_mrna_seq_v2_rsem.txt",
+      "sha256": "0142633bf030680b6a835c3c48e3c3eeb480ffe1617e1a62cffad36e9d0d6643"
+    },
+    {
+      "file": "data_mutations.txt",
+      "sha256": "8a0b57668d83d48bfd6b0d64bee28fa702384312866e574cf830e91df912b118"
+    },
+    {
+      "file": "data_cna.txt",
+      "sha256": "4e9536f0d7c52d44ba1b40924b9224a940c92e724edcc5d8873b5f87a8421850"
+    },
+    {
+      "file": "data_gene_panel_matrix.txt",
+      "sha256": "653782e802bac9eb0d5fab1d39bfc7f73044a9f6d9a02ceee848e8566888d2e7"
+    },
+    {
+      "file": "case_lists/cases_all.txt",
+      "sha256": "42991dd8109c82338b86de5114546217a59e1b049cd894cd5e90a65d8b3b3e7c"
+    },
+    {
+      "file": "case_lists/cases_sequenced.txt",
+      "sha256": "607dd5ba07255231dac1ce3384351d0777ca1fdec69c5f60db131addf5630ce7"
+    },
+    {
+      "file": "case_lists/cases_cna.txt",
+      "sha256": "bbe2cacfed53c154ecd359169d852904a9208817fb5b48ca13f3c7c62c3c6a1b"
+    },
+    {
+      "file": "case_lists/cases_RNA_Seq_v2_mRNA.txt",
+      "sha256": "ce519d0418e22f8f13242c1883743a7beb95f9b79a85275bdf36d28205d346f5"
+    }
+  ]
+}

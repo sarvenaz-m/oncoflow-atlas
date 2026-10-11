@@ -2,11 +2,16 @@ name: quality-gate
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
+
+env:
+  OPENBLAS_NUM_THREADS: "1"
+  PYTHONDONTWRITEBYTECODE: "1"
 
 jobs:
   python-quality:
@@ -15,28 +20,70 @@ jobs:
       matrix:
         python-version: ["3.11", "3.12"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
-      - name: Install dependencies
-        run: pip install -r requirements.txt pytest ruff
-      - name: Static checks
-        run: ruff check bin tests
-      - name: Unit and smoke tests
-        run: pytest -q
-      - name: Build deterministic example report
-        if: matrix.python-version == '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - name: Install release core and verification dependencies
         run: |
-          python bin/generate_demo.py --outdir data/demo --samples 36 --seed 19
-          python bin/analyse_multiomics.py \
-            --expression data/demo/expression.csv \
-            --variants data/demo/variants.csv \
-            --metadata data/demo/metadata.csv \
-            --outdir results/ci \
-            --cohort-name demo-cohort \
-            --min-vaf 0.05 \
-            --top-n 12
-          test -s results/ci/report.html
-          test -s results/ci/run_manifest.json
+          python -m pip install -r requirements-lock.txt -r requirements-dev.txt
+          python -m pip install --no-deps -e .
+      - name: Static and regression checks
+        run: |
+          python -m ruff check src scripts bin tests
+          python -m pytest -q
+      - name: Check committed artifact integrity
+        run: python scripts/verify_artifacts.py
+      - name: Rebuild public and synthetic reports
+        run: python scripts/build_reports.py
+      - name: Independent source and numerical verification
+        run: python scripts/verify_public_results.py
+      - name: Build installable distribution
+        run: python -m pip wheel --no-deps --wheel-dir dist .
+
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Offline browser, exports, import and responsive checks
+        run: npm run test:browser
+
+  nextflow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "17"
+      - run: python -m pip install -r requirements-lock.txt
+      - name: Install verified Nextflow distribution
+        run: |
+          curl -fsSL https://github.com/nextflow-io/nextflow/releases/download/v26.04.6/nextflow-26.04.6-dist -o /tmp/oncoflow-nextflow
+          echo "182a63c74074e2dc7956ffa3c8cd59de952ed2c44394e21faf5e1736b945444c  /tmp/oncoflow-nextflow" | sha256sum -c -
+          chmod +x /tmp/oncoflow-nextflow
+      - name: Execute public cohort through all three stages
+        run: |
+          /tmp/oncoflow-nextflow run main.nf -profile public,local --outdir results/ci-nextflow -ansi-log false
+          test -s results/ci-nextflow/report/report.html
+          test -s results/ci-nextflow/report/run_manifest.json
+          python -c "import pandas as p; t=p.read_csv('results/ci-nextflow/nextflow-trace.tsv',sep='\t'); assert len(t)==3 and (t.status=='COMPLETED').all(), t"
+      - name: Verify resume actually uses cached tasks
+        run: |
+          /tmp/oncoflow-nextflow run main.nf -profile public,local --outdir results/ci-nextflow -resume -ansi-log false
+          python -c "import pandas as p; t=p.read_csv('results/ci-nextflow/nextflow-trace.tsv',sep='\t'); assert len(t)==3 and (t.status=='CACHED').all(), t"

@@ -1,271 +1,131 @@
-<p align="center">
-  <img src="assets/hero-v1.png" alt="OncoFlow Atlas — reproducible cancer genomics and multi-omic workflows" width="100%" />
-</p>
+<p align="center"><img src="assets/banner-v2.svg" alt="OncoFlow Atlas — matched cancer genomics" width="100%"></p>
 
 <p align="center">
-  <strong>Portable, inspectable and reproducible cancer-genomics workflow engineering.</strong>
+  <a href="https://sarvenaz-m.github.io/oncoflow-atlas/"><img alt="Open interactive workbench" src="https://img.shields.io/badge/OPEN_INTERACTIVE_WORKBENCH-146d60?style=for-the-badge"></a>
+  <a href="docs/data-card.md"><img alt="Public data and methods" src="https://img.shields.io/badge/PUBLIC_DATA_%26_METHODS-615a91?style=for-the-badge"></a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/sarvenaz-m/oncoflow-atlas/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/sarvenaz-m/oncoflow-atlas/ci.yml?branch=main&style=flat-square&label=CI"></a>
-  <img alt="Python" src="https://img.shields.io/badge/Python-3.11%20%7C%203.12-43D9C4?style=flat-square&logo=python&logoColor=white">
-  <img alt="Nextflow" src="https://img.shields.io/badge/Nextflow-DSL2-5BB8E8?style=flat-square&logo=nextflow&logoColor=white">
-  <img alt="License" src="https://img.shields.io/badge/License-MIT-8E7CFF?style=flat-square">
-  <img alt="Workflow" src="https://img.shields.io/badge/Execution-Local%20%7C%20SLURM%20%7C%20AWS-18364A?style=flat-square">
-</p>
+# OncoFlow Atlas
 
-<p align="center">
-  <a href="https://sarvenaz-m.github.io/oncoflow-atlas/"><strong>Live project page</strong></a> ·
-  <a href="https://sarvenaz-m.github.io/oncoflow-atlas/demo.html"><strong>Interactive example report</strong></a> ·
-  <a href="docs/methodology.md"><strong>Methodology</strong></a> ·
-  <a href="docs/reproducibility.md"><strong>Reproducibility</strong></a>
-</p>
+An offline genomics workbench and reproducible Python workflow for exploring **matched RNA expression, mutation records and copy-number calls**. Version 2 analyzes a pinned public TCGA cholangiocarcinoma cohort and keeps the original synthetic cohort as a separate software demonstration.
 
-## Overview
+Filter the cohort, inspect a gene across all three assays, review missing information, and export the exact records behind the current view. The web report and Python calculations are tested against the same numerical contract.
 
-**OncoFlow Atlas** is a compact reference implementation for reproducible multi-omic cohort analysis. It combines a **Nextflow DSL2** orchestration layer with a **Python** analytics/reporting layer and emphasizes the engineering concerns that make computational research transferable: validation, explicit parameters, deterministic test data, executor-independent configuration, provenance and machine-readable outputs.
+![Actual public-data workbench](assets/workbench-overview.png)
 
-The included example integrates an expression matrix, somatic-variant table and sample metadata into exploratory cohort views and a standalone interactive research report.
+**Explore:** [Workbench](https://sarvenaz-m.github.io/oncoflow-atlas/) · [Expression](https://sarvenaz-m.github.io/oncoflow-atlas/#expression) · [Gene explorer](https://sarvenaz-m.github.io/oncoflow-atlas/#gene) · [Data card](docs/data-card.md) · [Validation evidence](validation/README.md)
 
-> The example cohort is synthetic and contains no patient data. The workflow is intended for research/software demonstration, not clinical diagnosis or regulatory-grade interpretation.
+The live URL serves whichever commit is currently published by GitHub Pages. To preview this v2 package immediately, open `docs/index.html` locally; its data, scripts and plots are embedded and require no server.
 
+## What the public run contains
 
-## Interactive demo
+| Input / output | Measured result |
+|---|---:|
+| Matched tumor specimens / distinct patients | 36 / 36 |
+| RNA features retained | 20,466 of 20,531 |
+| Discrete copy-number features retained | 24,805 of 25,128 |
+| Mutation records before filtering | 3,615 |
+| Records retained at VAF ≥ 0.05 | 3,592 |
+| PCA variance, PC1 / PC2 | 12.39% / 8.91% |
+| Reported purity values | 0 of 36 |
 
-<p align="center">
-  <a href="https://sarvenaz-m.github.io/oncoflow-atlas/demo.html">
-    <img src="assets/demo-dashboard.png" alt="OncoFlow Atlas interactive multi-omic demo dashboard" width="100%" />
-  </a>
-</p>
+Source: [TCGA Cholangiocarcinoma, PanCancer Atlas](https://www.cbioportal.org/study/summary?id=chol_tcga_pan_can_atlas_2018), distributed through cBioPortal Datahub at revision `dca75cb3f32b82d54a6f78bf0a6323e5b975aca1`. RNA values are upstream batch-normalized RSEM abundance, not raw read counts. Missing purity stays missing. All source mutation consequence classes are retained before VAF filtering; these counts are **not tumor mutational burden per megabase**.
 
-<p align="center">
-  <strong><a href="https://sarvenaz-m.github.io/oncoflow-atlas/demo.html">Open the full interactive report →</a></strong>
-</p>
+The analysis is descriptive: one cohort, no normal comparator, no fitted diagnostic or survival model. Numerical agreement and reproducibility are verified; external biological validation is outside this experiment.
 
-The committed demo is produced by the repository itself from a deterministic synthetic cohort. It exposes the same result contract generated by a local, container, SLURM or AWS-oriented run: expression structure, mutation landscape, integrated sample metrics, quality-control summaries and run provenance.
+## Explore the report
 
-| Cohort snapshot | Workflow evidence | Reproducibility | Execution |
-|---|---|---|---|
-| **36 samples · 40 genes** | PCA · heatmaps · mutation burden · oncoprint | input/output SHA-256 · deterministic seed · manifest | local · Docker/Singularity · SLURM · AWS Batch |
+- **Overview:** matched cohort, fixed full-cohort PCA and retained variant records.
+- **Expression:** genes ranked by selected-sample log-expression variance, gene-wise z-scores and sample correlations.
+- **Variants:** mutation landscape, exact VAF boundaries and sensitivity at six thresholds.
+- **Copy number:** all five GISTIC states; amplification/deletion counts refer to genes, not independent genomic events.
+- **Gene explorer:** expression, mutation records and CNA calls for the same gene and specimens.
+- **Quality & coverage:** input checks, feature exclusions, missing purity and sample review flags.
+- **Provenance:** pinned source revision, input hashes, methods and portable exports.
 
-<details>
-<summary><strong>View the full static demo preview inside GitHub</strong></summary>
+<details><summary>Browser walkthrough and mobile view</summary>
 
-<br/>
+The walkthrough uses captures from the functioning workbench.
 
-<img src="assets/demo-full.png" alt="Full OncoFlow Atlas demo report" width="100%" />
+![Browser walkthrough](assets/workbench-tour.gif)
+
+<img src="assets/workbench-mobile.png" alt="Actual responsive mobile workbench" width="360">
 
 </details>
 
-## Workflow at a glance
+## Reproduce the public analysis
 
-```text
-Synthetic / tabular cohort inputs
-        │
-        ├── expression matrix ─────────┐
-        ├── somatic variants ──────────┼──► validation + QC
-        └── sample metadata ───────────┘          │
-                                                  ▼
-                                        multi-omic integration
-                                                  │
-                        ┌─────────────────────────┼──────────────────────────┐
-                        ▼                         ▼                          ▼
-                  PCA / expression          mutation landscape          sample metrics
-                        └─────────────────────────┼──────────────────────────┘
-                                                  ▼
-                                     HTML + CSV/JSON + provenance
-```
-
-The analytical layer is intentionally decoupled from raw-assay preprocessing. Upstream WGS, RNA-seq, single-cell, spatial or long-read modules can therefore be connected through the documented tabular contracts without changing the core integration/reporting layer.
-
-## Report preview
-
-<p align="center">
-  <img src="assets/report-preview.svg" alt="OncoFlow Atlas report preview" width="100%" />
-</p>
-
-The generated report includes expression structure, standardized high-variance features, sample correlation, mutation burden, variant-impact composition, mutation landscape, sample-level integration, subtype summaries and QC.
-
-## Architecture
-
-<p align="center">
-  <img src="assets/architecture.svg" alt="Workflow architecture" width="100%" />
-</p>
-
-The workflow intentionally keeps assay-specific preprocessing upstream of a simple tabular data contract. This makes it possible to replace or extend input modules without rewriting the integration and reporting layer.
-
-## Core capabilities
-
-- **Nextflow DSL2 orchestration** with modular processes
-- executor profiles for **local**, **SLURM** and **AWS Batch** environments
-- **Docker** image plus a Singularity-compatible Nextflow profile
-- fail-fast schema, identifier and numeric-range validation
-- configurable **VAF filtering** and top-feature selection
-- expression PCA, standardized feature heatmap and sample-correlation analysis
-- gene-level mutation burden, impact composition and sample × gene mutation landscape
-- per-sample integration of expression signal, detected genes, purity and variant burden
-- deterministic synthetic cohort for reproducible smoke testing
-- SHA-256 provenance for primary inputs **and generated outputs**
-- runtime capture for Python, NumPy, pandas and Plotly
-- standalone interactive HTML reporting plus CSV/JSON result contracts
-- automated tests and multi-version GitHub Actions quality gate
-- Nextflow report, timeline and trace telemetry for orchestrated runs
-
-## Quick start
-
-### Python workflow
+Requires Python 3.11+; the release was executed with Python 3.12.14. The source tables and prepared cohort are included, so analysis can run without downloading patient-level files or requesting credentials.
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -r requirements-lock.txt
+python -m pip install --no-deps -e .
 
-python bin/generate_demo.py \
-  --outdir data/demo \
-  --samples 36 \
-  --seed 19
-
-python bin/analyse_multiomics.py \
-  --expression data/demo/expression.csv \
-  --variants data/demo/variants.csv \
-  --metadata data/demo/metadata.csv \
-  --outdir results/demo \
-  --cohort-name demo-cohort \
-  --min-vaf 0.05 \
-  --top-n 12
+python scripts/prepare_public_data.py
+python scripts/build_reports.py
 ```
 
-Open `results/demo/report.html` in a browser.
+On Windows, activate with `.venv\Scripts\activate` instead. For the supported dependency ranges rather than the release environment, install `requirements.txt` in place of `requirements-lock.txt`.
 
-Or use:
+`build_reports.py` runs both datasets and creates `results/public/report.html`, `results/example/report.html` and the combined `docs/index.html`. The versioned web source is `src/oncoflow_atlas/web/`; edit it there and rebuild the generated HTML.
+
+To download the pinned source again, use `python scripts/fetch_public_data.py --outdir data/public/source`. The downloader resolves Git LFS objects and verifies every source file's size and SHA-256. [Data provenance and license](DATA_LICENSE.md).
+
+## Run your own cohort
 
 ```bash
-make demo
+oncoflow-atlas --expression expression.csv --variants variants.csv \
+  --metadata metadata.csv --cna cna.csv --outdir results/my-cohort \
+  --cohort-name my-cohort --min-vaf 0.05 --top-n 12
 ```
 
-### Nextflow
+CNA is optional. Supply linear-scale expression with the units documented for your dataset; log-transformed inputs are not detected automatically. Exact specimen matching and one specimen per patient are required. [Input contract](docs/data-contract.md).
+
+## Validate the implementation
+
+Python development dependencies and Node.js 20+ are needed for cross-language checks.
 
 ```bash
-nextflow run main.nf -profile local -resume
+python -m pip install -r requirements-dev.txt
+python -m ruff check src scripts bin tests
+python -m pytest -q
+OPENBLAS_NUM_THREADS=1 python scripts/verify_public_results.py
+npm ci
+npx playwright install chromium
+npm run test:browser
 ```
 
-HPC execution:
+The independent verification reconstructs the prepared CSVs from pinned source bytes, compares PCA with scikit-learn, standardization/correlation with SciPy, and compares Python and JavaScript in 27 public/synthetic filter scenarios. [Recorded results and limitations](validation/README.md).
+
+## Run the staged workflow
+
+The Nextflow DSL2 graph has separate **validate → analyse → render** processes and rejects analysis inputs that changed after validation.
 
 ```bash
-SLURM_QUEUE=compute nextflow run main.nf -profile slurm -resume
+nextflow run main.nf -profile public,local --outdir results/nextflow-public
+nextflow run main.nf -profile public,local --outdir results/nextflow-public -resume
 ```
 
-AWS Batch configuration is supplied through environment variables rather than committed credentials:
+The Python stages were executed and compared with the direct run. Nextflow 26.04.6 parsed the graph here, but its local child-process launch failed in the build environment; an end-to-end Nextflow success is **not claimed**. CI includes a real Nextflow run and cache-resume check. Docker and SLURM profiles are supplied but have not been executed for this release. [Reproduction details](docs/reproducibility.md).
 
-```bash
-export AWS_BATCH_QUEUE=my-queue
-export AWS_REGION=eu-west-1
-export NXF_WORK=s3://my-bucket/oncoflow/work
-nextflow run main.nf -profile awsbatch -resume
-```
+## Project structure
 
-### Docker
-
-```bash
-docker build -t oncoflow-atlas:1.0 .
-
-docker run --rm \
-  -v "$PWD:/work" \
-  -w /work \
-  oncoflow-atlas:1.0 \
-  python bin/analyse_multiomics.py \
-    --expression data/demo/expression.csv \
-    --variants data/demo/variants.csv \
-    --metadata data/demo/metadata.csv \
-    --outdir results/container-demo \
-    --cohort-name container-demo
-```
-
-## Parameters
-
-| Parameter | Default | Purpose |
-|---|---:|---|
-| `--cohort-name` | `demo-cohort` | Label written to report and provenance |
-| `--min-vaf` | `0.05` | Exploratory somatic-variant VAF threshold |
-| `--top-n` | `12` | Number of top features/genes shown in ranked views |
-
-The same values are exposed as Nextflow parameters: `--cohort_name`, `--min_vaf` and `--top_n`.
-
-## Output contract
-
-| Output | Description |
+| Path | Purpose |
 |---|---|
-| `report.html` | interactive cohort report |
-| `cohort_summary.json` | compact machine-readable run summary |
-| `run_manifest.json` | parameters, runtime versions, input/output SHA-256 hashes |
-| `sample_metrics.csv` | sample-level integrated metrics |
-| `pca_coordinates.csv` | reproducible PCA coordinates |
-| `subtype_summary.csv` | cohort summaries grouped by subtype |
-| `top_genes.csv` | highest-variance expression features |
-| `variant_summary.csv` | gene-level variant counts |
-| `qc_summary.csv` | interpretable cohort QC checks |
+| `src/oncoflow_atlas/` | Validation, computation, CLI and shared report renderer |
+| `src/oncoflow_atlas/web/` | Browser calculations, workbench and native SVG charts |
+| `data/public/source/` | Original pinned public source bytes and study notice |
+| `data/public/prepared/` | Matched CSVs, feature exclusion ledger and source manifest |
+| `config/` | Source lock and explicit analytical protocol |
+| `results/public/` | Executed public analysis, CSVs and output hashes |
+| `results/example/` | Separate synthetic software example |
+| `validation/` | Independent numerical and browser evidence |
+| `docs/` | Offline Pages build, methods and data documentation |
 
-Nextflow executions additionally emit an execution **report**, **timeline** and **trace**.
+This project demonstrates reproducible preprocessing, numerical analysis, software validation and an inspectable interface for biomedical data. The methods, source selection and implementation are documented separately so each can be reviewed.
 
-## Repository structure
+## Attribution and licensing
 
-```text
-.
-├── .github/workflows/       # CI quality gate
-├── assets/                  # hero, demo previews, architecture and social preview
-├── bin/                     # deterministic generator + analysis CLI
-├── config/                  # cohort schema
-├── data/demo/               # synthetic example cohort
-├── docs/                    # architecture, methodology, data contract, reproducibility
-├── modules/                 # Nextflow DSL2 process modules
-├── results/example/         # committed example outputs
-├── tests/                   # contract, determinism and validation tests
-├── CHANGELOG.md
-├── CITATION.cff
-├── Dockerfile
-├── Makefile
-├── main.nf
-├── nextflow.config
-├── pyproject.toml
-└── requirements.txt
-```
-
-## Engineering principles
-
-**Fail early.** Structural errors and impossible values stop execution before downstream analysis.
-
-**Keep orchestration separate.** Executor configuration, resources and retry behavior live outside the analytical code.
-
-**Make provenance an output.** Every run records its parameters, runtime versions and SHA-256 checksums.
-
-**Retain inspectable intermediates.** Key tables remain available as CSV/JSON rather than being hidden behind a dashboard.
-
-**Use synthetic data for portability.** Anyone can exercise the repository without controlled-access human data.
-
-**Keep interpretation proportional to the method.** Outputs are exploratory and descriptive; the project does not present tabular demo analysis as a validated clinical pipeline.
-
-## Quality checks
-
-```bash
-pytest -q
-ruff check bin tests
-```
-
-The automated test suite covers:
-
-1. end-to-end output contract,
-2. deterministic data generation,
-3. rejection of invalid purity values.
-
-## Documentation
-
-- [`docs/architecture.md`](docs/architecture.md) — components and extension points
-- [`docs/data-contract.md`](docs/data-contract.md) — expected input schemas and constraints
-- [`docs/methodology.md`](docs/methodology.md) — analytical choices and limitations
-- [`docs/reproducibility.md`](docs/reproducibility.md) — provenance and execution model
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution expectations
-- [`CHANGELOG.md`](CHANGELOG.md) — v1.0 feature record
-
-## License
-
-MIT License. See [`LICENSE`](LICENSE).
+Software and authored synthetic examples: [MIT](LICENSE). Public source and adapted data: [separate data terms](DATA_LICENSE.md), including ODbL 1.0 and the retained TCGA study notice. Cite both the software and original data when using results. [Software citation](CITATION.cff) · [cBioPortal data terms](https://github.com/cBioPortal/datahub#license) · [TCGA PanCancer publications](https://gdc.cancer.gov/about-data/publications/pancanatlas).

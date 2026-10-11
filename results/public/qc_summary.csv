@@ -1,0 +1,8 @@
+metric,value,status
+Input identifiers and sample alignment,Validated,PASS
+Missing expression cells,0,PASS
+Samples without reported purity,36,NOT_REPORTED
+Known purity below threshold,0,PASS
+Records with unavailable VAF,0,PASS
+Known VAF below threshold,23,FILTERED
+Copy-number profile,24805,PASS

@@ -1,0 +1,9 @@
+.git
+.venv
+work
+results
+assets
+docs
+data
+.nextflow*
+__pycache__

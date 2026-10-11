@@ -1,0 +1,4 @@
+subtype,samples,median_purity,median_variants,mean_expression_signal
+Cholangiocarcinoma,2,,30,6.51758536585556
+Intrahepatic Cholangiocarcinoma,30,,66.5,6.4043637997936
+Perihilar Cholangiocarcinoma,4,,78,6.33741498254061

@@ -1,7 +1,8 @@
 metric,value,status
-Expression missing cells,0.0,PASS
-Duplicated metadata samples,0.0,PASS
-Samples with purity < 0.40,0.0,PASS
-Variants below configured VAF,0.0,PASS
-Median sample purity,0.644,PASS
-Median variants per sample,2.0,PASS
+Input identifiers and sample alignment,Validated,PASS
+Missing expression cells,0,PASS
+Samples without reported purity,0,PASS
+Known purity below threshold,0,PASS
+Records with unavailable VAF,0,PASS
+Known VAF below threshold,0,FILTERED
+Copy-number profile,Not supplied,NOT_REPORTED

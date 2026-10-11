@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "wheel": "oncoflow_atlas-2.0.0-py3-none-any.whl",
+  "wheel_sha256": "dd9887ed77bb9652dee467eaf9d2e3638e0a2901c5306d9e2cca248ac2a4bce3",
+  "installed_outside_repository": true,
+  "synthetic_analysis_and_report": "Byte-identical to checked-in synthetic example",
+  "bundled_web_assets": 4
+}

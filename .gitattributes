@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.png binary
+*.gif binary
+*.webm binary
+# Preserve pinned upstream bytes, including original line endings and whitespace.
+data/public/source/** -text -whitespace

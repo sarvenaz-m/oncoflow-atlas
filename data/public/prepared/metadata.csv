@@ -1,0 +1,37 @@
+sample_id,patient_id,subtype,grade,purity,batch
+TCGA-3X-AAV9-01,TCGA-3X-AAV9,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-3X-AAVA-01,TCGA-3X-AAVA,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-3X-AAVB-01,TCGA-3X-AAVB,Cholangiocarcinoma,G1,,Not reported
+TCGA-3X-AAVC-01,TCGA-3X-AAVC,Perihilar Cholangiocarcinoma,G3,,Not reported
+TCGA-3X-AAVE-01,TCGA-3X-AAVE,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-4G-AAZO-01,TCGA-4G-AAZO,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-4G-AAZT-01,TCGA-4G-AAZT,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-W5-AA2G-01,TCGA-W5-AA2G,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA2H-01,TCGA-W5-AA2H,Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA2I-01,TCGA-W5-AA2I,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-W5-AA2O-01,TCGA-W5-AA2O,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA2Q-01,TCGA-W5-AA2Q,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-W5-AA2R-01,TCGA-W5-AA2R,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA2T-01,TCGA-W5-AA2T,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA2U-01,TCGA-W5-AA2U,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA2W-01,TCGA-W5-AA2W,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA2X-01,TCGA-W5-AA2X,Perihilar Cholangiocarcinoma,G4,,Not reported
+TCGA-W5-AA2Z-01,TCGA-W5-AA2Z,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA30-01,TCGA-W5-AA30,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA31-01,TCGA-W5-AA31,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA33-01,TCGA-W5-AA33,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA34-01,TCGA-W5-AA34,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-W5-AA36-01,TCGA-W5-AA36,Perihilar Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA38-01,TCGA-W5-AA38,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-W5-AA39-01,TCGA-W5-AA39,Intrahepatic Cholangiocarcinoma,G4,,Not reported
+TCGA-W6-AA0S-01,TCGA-W6-AA0S,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-WD-A7RX-01,TCGA-WD-A7RX,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-YR-A95A-01,TCGA-YR-A95A,Perihilar Cholangiocarcinoma,G2,,Not reported
+TCGA-ZD-A8I3-01,TCGA-ZD-A8I3,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-ZH-A8Y1-01,TCGA-ZH-A8Y1,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-ZH-A8Y2-01,TCGA-ZH-A8Y2,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-ZH-A8Y4-01,TCGA-ZH-A8Y4,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-ZH-A8Y5-01,TCGA-ZH-A8Y5,Intrahepatic Cholangiocarcinoma,G3,,Not reported
+TCGA-ZH-A8Y6-01,TCGA-ZH-A8Y6,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-ZH-A8Y8-01,TCGA-ZH-A8Y8,Intrahepatic Cholangiocarcinoma,G2,,Not reported
+TCGA-ZU-A8S4-01,TCGA-ZU-A8S4,Intrahepatic Cholangiocarcinoma,G3,,Not reported

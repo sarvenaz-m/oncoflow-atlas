@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "samples": 36,
+  "patients": 36,
+  "expression_genes": 20466,
+  "variant_records": 3615,
+  "cna_genes": 24805,
+  "missing_expression_cells": 0,
+  "purity_unavailable": 36,
+  "vaf_unavailable": 0,
+  "checks": [
+    "exact_sample_alignment",
+    "unique_sample_patient_gene_ids",
+    "rectangular_tables",
+    "finite_nonnegative_expression",
+    "nullable_bounded_purity_vaf",
+    "unique_variant_records",
+    "discrete_cna_calls",
+    "nonzero_sample_signal"
+  ],
+  "inputs": {
+    "expression": {
+      "name": "expression.csv",
+      "sha256": "5329c37490120bd7f1f72943278ed475c0292e88c8fba864469bbdff7b433cdc",
+      "bytes": 10474156
+    },
+    "variants": {
+      "name": "variants.csv",
+      "sha256": "8c849755cda27e600e20605b71d4f12d6c8862201bcbf5b85f41ba2ebb27a6e2",
+      "bytes": 393586
+    },
+    "metadata": {
+      "name": "metadata.csv",
+      "sha256": "d9d2a69f662b9abc13c28cced56f85e0bd4953797ede0468e28e6fdc81727ea3",
+      "bytes": 2818
+    },
+    "cna": {
+      "name": "cna.csv",
+      "sha256": "fa057f5820845c0343efb7baf6583239492ac7ec2866a29a2861fd3d5740c877",
+      "bytes": 2172896
+    }
+  },
+  "scope": "Tabular contract validation; assay-level sequencing quality is not inferred from processed tables"
+}

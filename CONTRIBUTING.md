@@ -1,9 +1,9 @@
 # Contributing
 
-Contributions should preserve deterministic demo execution and reproducibility.
+Keep input provenance, mathematical definitions and rendered results consistent. Edit the browser sources in `src/oncoflow_atlas/web/` and rebuild `docs/index.html`; do not patch only the generated HTML.
 
-1. Create a focused branch.
-2. Add or update tests when behaviour changes.
-3. Run `pytest -q` before opening a pull request.
-4. Keep workflow configuration environment-specific; never commit credentials or institution-specific secrets.
-5. Document new outputs and parameters in the README.
+For analysis changes, run the regression suite and independent numerical/parity checks. For interface changes, run the browser checks. Follow the commands in the README and update the recorded evidence when intentionally rebuilding release artifacts. An implementation change must not be presented as new biological evidence.
+
+Keep the pinned upstream source files unchanged. To introduce a new study or source revision, create a separate lock/data card with specimen selection, feature exclusions, license and units before interpreting results. Never replace missing clinical information with invented values.
+
+The public data terms are separate from the software license. Preserve source attribution and the complete open adapted dataset when redistributing data-bearing reports.

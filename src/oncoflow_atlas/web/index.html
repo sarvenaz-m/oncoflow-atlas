@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="__CSP__">
+<meta name="theme-color" content="#101a2d"><meta name="description" content="Explore matched public TCGA expression, mutation and copy-number profiles with reproducible QC and traceable source data.">
+<title>OncoFlow Atlas · Genomics Workbench</title><style>__STYLES__</style></head>
+<body><a class="skip" href="#workspace">Skip to results</a>
+<aside class="sidebar">
+  <a class="brand" href="#overview" aria-label="OncoFlow Atlas overview"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#9ce4d0"/><path d="M12 9c0 12 16 10 16 22M28 9c0 12-16 10-16 22M14 13h12M13 27h14M17 20h6" fill="none" stroke="#122c35" stroke-width="2"/></svg><span>OncoFlow <b>Atlas</b><small>GENOMICS WORKBENCH</small></span></a>
+  <p class="nav-label">EXPLORE THE COHORT</p>
+  <nav aria-label="Workspaces">
+    <a href="#overview" data-route="overview"><span>◈</span> Overview</a>
+    <a href="#expression" data-route="expression"><span>▥</span> Expression</a>
+    <a href="#variants" data-route="variants"><span>◇</span> Variant landscape</a>
+    <a href="#copy-number" data-route="copy-number"><span>▤</span> Copy number</a>
+    <a href="#gene" data-route="gene"><span>⌕</span> Gene explorer</a>
+    <a href="#quality" data-route="quality"><span>◎</span> Quality & coverage</a>
+    <a href="#provenance" data-route="provenance"><span>↗</span> Provenance</a>
+  </nav>
+  <div class="side-foot"><span class="local-dot"></span> Local analysis view<p>Data stays in your browser.</p><div>OncoFlow Atlas <b>2.0.0</b></div></div>
+</aside>
+<div class="body-shell">
+<header class="topbar"><div class="breadcrumb">WORKSPACE <span>/</span> <strong id="route-label">Overview</strong></div><div class="toolbar"><button id="theme" class="icon-button" aria-label="Toggle light appearance">◐</button><button id="import-button">Import analysis</button><button id="export-csv">Export view CSV ↗</button><input id="import-file" type="file" accept=".json,application/json" hidden></div></header>
+<main class="main">
+  <section class="intro"><div><span class="eyebrow">MATCHED ASSAYS · TRACEABLE RESULTS</span><h1 id="page-title">Three assays. One cohort.</h1><p id="page-description">Follow the evidence from expression and alterations to a reproducible cohort view.</p></div><span class="pill" id="source-badge">Public source</span></section>
+  <form id="controls" class="controls panel">
+    <div class="field dataset"><label for="dataset">Dataset</label><select id="dataset"></select></div>
+    <div class="field"><label for="subtype">Histology / group</label><select id="subtype"></select></div>
+    <div class="field small"><label for="vaf">Minimum VAF <output id="vaf-value">0.05</output></label><input id="vaf" type="range" min="0" max="1" step="0.01" value="0.05"></div>
+    <div class="field compact"><label for="top-n">Top genes</label><input id="top-n" type="number" min="3" max="50" value="12"></div>
+    <div class="field compact"><label for="purity">Purity flag below</label><input id="purity" type="number" min="0" max="1" step="0.05" value="0.40"></div>
+    <div class="field search"><label for="sample-search">Sample filter</label><input id="sample-search" type="search" placeholder="Sample identifier" autocomplete="off"></div>
+    <div class="control-actions"><button type="submit" class="primary" id="apply">Apply filters</button><button type="button" id="reset">Reset</button></div>
+  </form>
+  <div class="view-status"><span id="view-status" role="status" aria-live="polite">Loading report…</span><span>Expression: log₂(value + 1) · sample SD</span></div>
+  <section id="workspace" tabindex="-1"></section>
+  <footer><span>Inspect the cohort. Keep the evidence.</span><a href="https://github.com/sarvenaz-m/oncoflow-atlas" target="_blank" rel="noopener noreferrer">Source & reproduction ↗</a></footer>
+</main></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script id="oncoflow-data" type="application/json">__PAYLOAD__</script>
+<script>__ANALYSIS__</script><script>__APP__</script>
+</body></html>

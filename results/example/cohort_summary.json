@@ -1,21 +1,29 @@
 {
-  "cohort": "demo-cohort",
+  "cohort": "synthetic-demo",
   "samples": 36,
+  "patients": 36,
+  "genes": 40,
   "variants_input": 92,
   "variants_retained": 92,
-  "genes": 40,
+  "variant_genes": 10,
   "median_purity": 0.644,
+  "purity_reported": 36,
+  "samples_flagged": 0,
   "subtypes": {
-    "Classical": 18,
-    "Basal-like": 18
+    "Basal-like": 18,
+    "Classical": 18
   },
+  "qc_pass_rate_pct": 100.0,
+  "qc_rate_scope": "Assessable cohort checks only; unavailable fields are listed separately",
   "parameters": {
     "min_vaf": 0.05,
-    "top_n": 12
+    "top_n": 12,
+    "min_purity": 0.4,
+    "subtype": "All",
+    "search": ""
   },
   "pca_variance_explained_pct": {
-    "PC1": 16.72,
-    "PC2": 10.32
-  },
-  "qc_pass_rate_pct": 100
+    "PC1": 16.718304596858783,
+    "PC2": 10.316403752675539
+  }
 }

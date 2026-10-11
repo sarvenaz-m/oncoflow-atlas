@@ -5,5 +5,7 @@ type: software
 authors:
   - family-names: "Mahmoudzadeh"
     given-names: "Sarvenaz"
-version: "1.0.0"
+version: "2.0.0"
 license: MIT
+repository-code: "https://github.com/sarvenaz-m/oncoflow-atlas"
+date-released: "2026-10-05"

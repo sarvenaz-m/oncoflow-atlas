@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "scope": "Independent numerical and byte-reproduction checks; not external biological validation",
+  "libraries": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0"
+  },
+  "public_analysis_sha256": "cdf02dc322e84b40cfbb4e85daa0dd805ad5f52eeb6ab517fb655b9edc4a5265",
+  "source_revision": "dca75cb3f32b82d54a6f78bf0a6323e5b975aca1",
+  "samples": 36,
+  "expression_genes": 20466,
+  "variants": 3615,
+  "pca_coordinates_max_abs_error": 3.552713678800501e-13,
+  "pca_explained_pct_max_abs_error": 7.105427357601002e-15,
+  "heatmap_max_abs_error": 5.551115123125783e-16,
+  "correlation_max_abs_error": 3.9968028886505635e-15,
+  "vaf_max_abs_error": 0.0,
+  "prepared_files_reproduced": [
+    "expression.csv",
+    "cna.csv",
+    "metadata.csv",
+    "variants.csv",
+    "excluded_features.csv"
+  ],
+  "threshold_checks": 6,
+  "python_javascript_parity": {
+    "status": "passed",
+    "scenarios": 27,
+    "numeric_values": 176440,
+    "max_absolute_error": 1.8918200339612667e-13,
+    "tolerance": "1e-9 relative, 1e-9 absolute"
+  }
+}

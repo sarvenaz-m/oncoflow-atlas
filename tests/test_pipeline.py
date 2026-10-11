@@ -12,20 +12,36 @@ def run_demo(tmp_path: Path, samples: int = 12):
     data = tmp_path / "data"
     results = tmp_path / "results"
     subprocess.run(
-        [sys.executable, str(ROOT / "bin/generate_demo.py"), "--outdir", str(data), "--samples", str(samples), "--seed", "19"],
+        [
+            sys.executable,
+            str(ROOT / "bin/generate_demo.py"),
+            "--outdir",
+            str(data),
+            "--samples",
+            str(samples),
+            "--seed",
+            "19",
+        ],
         check=True,
     )
     subprocess.run(
         [
             sys.executable,
             str(ROOT / "bin/analyse_multiomics.py"),
-            "--expression", str(data / "expression.csv"),
-            "--variants", str(data / "variants.csv"),
-            "--metadata", str(data / "metadata.csv"),
-            "--outdir", str(results),
-            "--cohort-name", "ci-test",
-            "--min-vaf", "0.08",
-            "--top-n", "10",
+            "--expression",
+            str(data / "expression.csv"),
+            "--variants",
+            str(data / "variants.csv"),
+            "--metadata",
+            str(data / "metadata.csv"),
+            "--outdir",
+            str(results),
+            "--cohort-name",
+            "ci-test",
+            "--min-vaf",
+            "0.08",
+            "--top-n",
+            "10",
         ],
         check=True,
     )
@@ -44,8 +60,15 @@ def test_demo_pipeline_contract(tmp_path):
     assert summary["qc_pass_rate_pct"] >= 80
 
     expected = {
-        "report.html", "cohort_summary.json", "run_manifest.json", "sample_metrics.csv",
-        "pca_coordinates.csv", "subtype_summary.csv", "top_genes.csv", "variant_summary.csv", "qc_summary.csv",
+        "report.html",
+        "cohort_summary.json",
+        "run_manifest.json",
+        "sample_metrics.csv",
+        "pca_coordinates.csv",
+        "subtype_summary.csv",
+        "top_genes.csv",
+        "variant_summary.csv",
+        "qc_summary.csv",
     }
     assert expected.issubset({p.name for p in results.iterdir()})
     assert (results / "report.html").stat().st_size > 20_000
@@ -58,7 +81,16 @@ def test_demo_is_deterministic(tmp_path):
     data_b = tmp_path / "b"
     for out in [data_a, data_b]:
         subprocess.run(
-            [sys.executable, str(ROOT / "bin/generate_demo.py"), "--outdir", str(out), "--samples", "10", "--seed", "29"],
+            [
+                sys.executable,
+                str(ROOT / "bin/generate_demo.py"),
+                "--outdir",
+                str(out),
+                "--samples",
+                "10",
+                "--seed",
+                "29",
+            ],
             check=True,
         )
     assert (data_a / "expression.csv").read_bytes() == (data_b / "expression.csv").read_bytes()
@@ -68,18 +100,25 @@ def test_demo_is_deterministic(tmp_path):
 def test_invalid_purity_is_rejected(tmp_path):
     data = tmp_path / "data"
     results = tmp_path / "results"
-    subprocess.run([sys.executable, str(ROOT / "bin/generate_demo.py"), "--outdir", str(data), "--samples", "8"], check=True)
+    subprocess.run(
+        [sys.executable, str(ROOT / "bin/generate_demo.py"), "--outdir", str(data), "--samples", "8"], check=True
+    )
     metadata = pd.read_csv(data / "metadata.csv")
     metadata.loc[0, "purity"] = 1.4
     metadata.to_csv(data / "metadata.csv", index=False)
 
     proc = subprocess.run(
         [
-            sys.executable, str(ROOT / "bin/analyse_multiomics.py"),
-            "--expression", str(data / "expression.csv"),
-            "--variants", str(data / "variants.csv"),
-            "--metadata", str(data / "metadata.csv"),
-            "--outdir", str(results),
+            sys.executable,
+            str(ROOT / "bin/analyse_multiomics.py"),
+            "--expression",
+            str(data / "expression.csv"),
+            "--variants",
+            str(data / "variants.csv"),
+            "--metadata",
+            str(data / "metadata.csv"),
+            "--outdir",
+            str(results),
         ],
         capture_output=True,
         text=True,

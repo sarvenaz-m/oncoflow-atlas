@@ -1,0 +1,13 @@
+{
+  "status": "blocked",
+  "nextflow": "26.04.6",
+  "java": "17.0.20",
+  "graph_parsed": true,
+  "first_process_submitted": true,
+  "completed_tasks": 0,
+  "observed_error": "fatal library error, lookup self",
+  "retry": "A second attempt with a 120-second timeout did not complete",
+  "resume_verified": false,
+  "python_stage_equivalence": "Passed regression test test_separate_stages_match_direct_run",
+  "ci": "Public end-to-end run and strict three-task resume assertion configured; not remotely executed"
+}
